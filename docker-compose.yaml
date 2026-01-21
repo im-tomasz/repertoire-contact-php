@@ -1,0 +1,30 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword # mot de passe root
+      MYSQL_DATABASE: contacts # nom de la base créée
+      MYSQL_USER: greg # utilisateur
+      MYSQL_PASSWORD: greg # mot de passe utilisateur
+    ports:
+    - "3306:3306"
+    volumes:
+    - mysql_data:/var/lib/mysql # persistance des données
+      
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: rootpassword
+    ports:
+    - "8080:80"
+    depends_on:
+    - mysql
+
+volumes:
+  mysql_data:
