@@ -18,10 +18,10 @@ $contacts = getAllContacts();
                 $groupe = getGroupById($contact['id_groupe']); ?>
                         <div class="col-4 text-center text-secondary py-3">
                             <div class="card">
-                                <img src="img/<?php echo $contact['id_contact']?>.jpg" alt="" class="card-img-top">
+                                <img src="img/<?php echo $contact['photo']?>" alt="" class="card-img-top img-fluid">
                                 <div class="card-body">
                                     <div class="card-title mb-3">
-                                        <a class="text-decoration-none" href="single.php?id=<?php echo $contact['id_contact'] ?>"><h2 class="fs-italic"><?php echo $contact['nom'] ." ". $contact['prenom']?></h2></a>
+                                        <a class="text-decoration-none" href="single.php?id=<?php echo $contact['id_contact'] ?>"><h2 class="fs-italic"><?php echo htmlspecialchars($contact['nom']) ." ". $contact['prenom']?></h2></a>
                                     </div>
                                     <div class="card-text text-center">
                                         <p class="m-1 text-nowrap"><?php echo $contact['email'] ?></p>
@@ -35,6 +35,11 @@ $contacts = getAllContacts();
                             </div>
                         </div> 
             <?php } ?>
+        </article>
+        <article>
+            <div class="text-center p-3 row d-flex justify-content-center align-items-center">
+                <a href="addContact.php" class="text-decoration-none col-2"><h4 class="bg-primary text-white rounded-3 p-2"> Ajouter un contact </h4></a>
+            </div>
         </article>
     </section>                    
             

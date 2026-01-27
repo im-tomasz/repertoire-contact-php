@@ -1,0 +1,56 @@
+.fade-color {
+  color: red;
+  animation: toGreen 1s ease forwards;
+  animation-delay: 0.7s;
+}
+
+body {
+  background-color: rgb(247, 247, 247);
+}
+
+ @keyframes toGreen {
+  from {
+    color: red;
+  }
+  to {
+    color: green;
+  }
+}
+
+
+.fade-black {
+  color : white;
+  animation : toBlack 2s ease forwards;
+  animation-delay: 1s;
+}
+
+@keyframes toBlack {
+  from {
+    color: white;
+  }
+  to {
+    color : black;
+  }
+}
+
+.hover{
+transform: color 0.6 ease !important ;
+}
+
+.hover:hover {
+  
+  color : rgb(43, 118, 193) !important
+}
+
+.form-height{
+  height: 2.5rem !important;
+}
+
+.bg-primary:hover{
+  background-color: rgb(0, 64, 184) !important;
+  text-decoration: none !important;
+}
+
+.fs-6{
+  font-size: 0.8rem !important;
+}
