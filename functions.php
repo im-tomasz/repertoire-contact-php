@@ -187,3 +187,34 @@ function updateContactWithoutPhoto($nom, $prenom, $date, $tel, $email, $id_group
     $contact = $dbh->lastInsertId();
     return $contact;
 }
+
+function userSignUp($email, $pseudo, $password){
+    $dbh=dbconnect();
+    $query="INSERT INTO user (email, pseudo, password)
+            VALUES (:email, :pseudo, :password);";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':pseudo', $pseudo);
+    $stmt->bindParam(':password', $password);
+    $stmt->execute();
+}
+
+function findUserByMail($email){
+    $dbh=dbconnect();
+    $query="SELECT * FROM user WHERE email = :email";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $user;
+}
+
+function findUserPasswordByMail($email){
+    $dbh=dbconnect();
+    $query="SELECT 'password' FROM user WHERE email = :email";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $password = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $password;
+}

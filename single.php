@@ -1,6 +1,9 @@
 <?php require_once "functions.php";
 require_once "partials/header.php";
 
+var_dump($_SESSION);
+die();
+
 if(isset($_GET['id'])&& !empty($_GET['id'])){
     $id = $_GET['id'];
     $contact = getContactById($id);

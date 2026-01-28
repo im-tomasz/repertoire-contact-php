@@ -18,7 +18,9 @@ $contacts = getAllContacts();
                 $groupe = getGroupById($contact['id_groupe']); ?>
                         <div class="col-4 text-center text-secondary py-3">
                             <div class="card">
-                                <img src="img/<?php echo $contact['photo']?>" alt="" class="card-img-top img-fluid">
+                                <div class="ratio ratio-1x1">
+                                    <img src="img/<?php echo $contact['photo']?>" alt="" class="card-img-top img-fluid ">
+                                </div>
                                 <div class="card-body">
                                     <div class="card-title mb-3">
                                         <a class="text-decoration-none" href="single.php?id=<?php echo $contact['id_contact'] ?>"><h2 class="fs-italic"><?php echo htmlspecialchars($contact['nom']) ." ". $contact['prenom']?></h2></a>

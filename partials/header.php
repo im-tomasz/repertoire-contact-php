@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,3 +15,7 @@
     <title>Document</title>
 </head>
 <body>
+
+<?php if(isset($_GET['message'])){
+    echo $_GET['message'];
+}

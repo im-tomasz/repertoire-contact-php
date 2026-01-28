@@ -54,3 +54,7 @@ transform: color 0.6 ease !important ;
 .fs-6{
   font-size: 0.8rem !important;
 }
+
+img {
+  object-fit: cover !important;
+}

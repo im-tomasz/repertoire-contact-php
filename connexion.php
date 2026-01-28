@@ -6,6 +6,12 @@ function dbconnect() {
         $user = 'greg';
         $password = 'greg';
 
+           $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ];
+
         $dbh = new PDO($dsn, $user, $password);
         return $dbh;
     }catch(PDOException $e){
